@@ -1,0 +1,12 @@
+spring:
+  freemarker:
+    charset: UTF-8
+    template-loader-path: file:/usr/app/template
+    suffix: .tmpl
+    settings:
+      classic_compatible: true
+
+server:
+  port: 8081
+
+

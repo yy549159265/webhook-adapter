@@ -1,0 +1,24 @@
+# 使用官方的Java运行环境作为基础镜像
+FROM openjdk:8-jdk-alpine
+ENV LANG=C.UTF-8
+# 设置镜像的工作目录
+WORKDIR /usr/app
+
+# 将本地文件复制到镜像的工作目录中
+COPY ./prometheus-1.0-SNAPSHOT.jar /usr/app/
+COPY ./prometheus-up.sh /usr/app
+
+# 给脚本文件增加可执行权限
+RUN chmod +x /usr/app/prometheus-up.sh
+
+
+
+# 在apk add之前添加设置源操作
+RUN echo "http://mirrors.aliyun.com/alpine/v3.9/main/" > /etc/apk/repositories
+RUN echo "http://mirrors.aliyun.com/alpine/v3.9/community/" >> /etc/apk/repositories
+# 设置时区
+RUN apk add --no-cache tzdata
+ENV TZ=Asia/Shanghai
+
+# 设置启动容器时的默认命令
+ENTRYPOINT ["sh","/usr/app/prometheus-up.sh"]
