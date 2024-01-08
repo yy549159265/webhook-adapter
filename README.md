@@ -79,6 +79,7 @@ setup：可直接安装文件，包含启动脚本，dockerfile，jar包
             args:  
             - --wechat.webhook.url=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=27c8fca6-b8fe-4e93-ab21-078bd999d20d
             - --wechat.webhook.template=ntp.tmpl
+            - --server.port=8081
             ports:
             - containerPort: 8081
             name: wechat
@@ -143,7 +144,8 @@ setup：可直接安装文件，包含启动脚本，dockerfile，jar包
 镜像webhook-adapter:v1.0参数说明：  
     必须参数：  
     --wechat.webhook.url=<URL>: 这是企业微信的webhook URL，不能省略。  
-    --wechat.webhook.template=<x.tmpl>: 这是模板文件的名称，它使用的是markdown格式，不能省略。  
+    --wechat.webhook.template=<x.tmpl>: 这是模板文件的名称，它使用的是markdown格式，不能省略。
+    --server.port=<prot>: 这是springboot启动监听端口，不能省略。
     可选参数：  
     --customLabel=<key1,key2>: 如果您有需要增加的自定义label，可以用这个参数，它是可选的。  
     --customAnnotations=<key1,key2>: 如果您有需要增加的自定义annotation，可以用这个参数，它是可选的。  
