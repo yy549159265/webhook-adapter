@@ -74,7 +74,7 @@ setup：可直接安装文件，包含启动脚本，dockerfile，jar包
             name: ntp-configmap
         containers:
         - name: webhook-wechat
-            image: webhook-adapter:v1.0
+            image: yy549159265/webhook-adapter:v1.0
             imagePullPolicy: IfNotPresent
             args:  
             - --wechat.webhook.url=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=27c8fca6-b8fe-4e93-ab21-078bd999d20d
