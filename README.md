@@ -21,7 +21,7 @@ setup：可直接安装文件，包含启动脚本，dockerfile，jar包
 3. K8S部署  
 3.1 创建ntp.tmpl和新的configmap：
    ```bash
-    下面这些变量是默认的，不用自己定义，持续时间是开始时间-结束时间
+    下面这些变量是默认的，不用自己定义(模板可以使用freemarker语法，添加if判断)，持续时间是开始时间-结束时间
     # 告警信息
     **告警名称：** ${alertname}
     **名字空间：** ${namespace}
